@@ -14,7 +14,7 @@ public class GeneralJudge implements Judge {
     @Override
     public Winner whoIsWinner(Car[] cars) {
         int maxScore = getMaxScore(cars);
-        return winnableStrategy.determineWinner(cars, maxScore);
+        return winnableStrategy.decideWinner(cars, maxScore);
     }
 
     private int getMaxScore(Car[] cars) {

@@ -11,21 +11,21 @@
 <br/>
 
 ## Main Point
-- SRP (객체가 하나의 책임을 갖도록)
+- SRP (하나의 객체가 하나의 책임을 갖도록)
 - OCP (게임 규칙, 우승자 선정 방법이 변경되었을 때 기존 코드의 수정없이 확장만으로 해결할 수 있도록)
 - ~~LSP (상속이 필요하지 않음)~~
-- ISP (객체가 자신의 역할에 따른 행동만 갖을 수 있도록 분리)
+- ISP (각 객체가 자신의 역할에 따른 행동만 갖을 수 있도록 분리)
 - DIP (보다 추상적인 계층에 의존하도록)
 
 <br/>
 
 ## Model
-![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/4a44e476-6d01-4eef-bd3e-c5101fe4108e)
+![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/d167a6d8-40e0-45e1-aef9-05adb0f85e61)
 
 <br/>
 
 ## UML
-![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/ea169229-d82c-40a3-b77b-bfdf873d070b)
+![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/d257a40a-a84b-40b5-8d42-5ef74eb279ad)
 
 <br/>
 
@@ -41,7 +41,7 @@
 
 <br/>
 
-#### 해결 방식 1. RacingByRandomRule 클래스 내 값을 변경
+#### 해결 방식 1 - 변경: RacingByRandomRule 클래스 내 값을 변경
 
 **변경 전**
 ```java
@@ -65,7 +65,7 @@ public class RacingByRandomRule implements RacingRule {
 }
 ```
 
-#### 해결 방식 2. 새로운 규칙 클래스를 추가
+#### 해결 방식 2 - 확장: 새로운 규칙 클래스를 추가
 **1. 신규 규칙 클래스 생성**
 ```java
 public class RacingByRandomBetweenOneAndHundredRule implements RacingRule {
@@ -84,19 +84,14 @@ public class RacingByRandomBetweenOneAndHundredRule implements RacingRule {
 public class Main {
 
     public static void main(String[] args) {
-        ...
-
         Game game = new RacingGame(
-                cars,
-                moveCount,
-//              new RacingByRandomRule(),
-                new RacingByRandomBetweenOneAndHundredRule(),
+                new GeneralPlayer(),
+//                new GeneralRacing(new RacingByRandomRule()),
+                new GeneralRacing(new RacingByRandomBetweenOneAndHundredRule()),
                 new GeneralJudge(new JointWinnableStrategy())
         );
-        game.start();
+        game.play();
     }
-    
-    ...
 }
 ```
 
@@ -112,7 +107,7 @@ public class Main {
 
 <br/>
 
-### 해결 방식. 새로운 우승자 선정 전략과 우승자 구현체 생성
+### 해결 방식 - 확장: 새로운 우승자 선정 전략과 우승자 구현체 생성
 **1. 단독 우승자 클래스 생성**
 ```java
 public class SoloWinner implements Winner {
@@ -153,19 +148,14 @@ public class SoloWinnableStrategy {
 public class Main {
 
     public static void main(String[] args) {
-        ...
-
         Game game = new RacingGame(
-                cars,
-                moveCount,
-                new RacingByRandomRule(),
+                new GeneralPlayer(),
+                new GeneralRacing(new RacingByRandomRule()),
 //              new GeneralJudge(new JointWinnableStrategy())
                 new GeneralJudge(new SoloWinnableStrategy())
         );
-        game.start();
+        game.play();
     }
-    
-    ...
 }
 ```
 

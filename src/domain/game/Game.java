@@ -2,6 +2,6 @@ package domain.game;
 
 public interface Game {
 
-    void start();
+    void play();
 
 }

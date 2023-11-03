@@ -10,7 +10,7 @@ import java.util.List;
 public class JointWinnableStrategy implements WinnableStrategy {
 
     @Override
-    public Winner determineWinner(Car[] cars, int maxScore) {
+    public Winner decideWinner(Car[] cars, int maxScore) {
         List<Car> winners = new ArrayList<>(cars.length);
 
         for (Car car : cars) {

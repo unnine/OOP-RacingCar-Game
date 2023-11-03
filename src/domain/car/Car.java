@@ -4,6 +4,8 @@ public interface Car {
 
     void go();
 
+    String name();
+
     int distanceDriven();
 
 }

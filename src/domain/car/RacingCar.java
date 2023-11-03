@@ -18,12 +18,12 @@ public class RacingCar implements Car {
     }
 
     @Override
-    public int distanceDriven() {
-        return distanceDriven;
+    public String name() {
+        return name;
     }
 
     @Override
-    public String toString() {
-        return name;
+    public int distanceDriven() {
+        return distanceDriven;
     }
 }

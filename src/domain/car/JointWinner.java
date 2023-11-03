@@ -2,6 +2,7 @@ package domain.car;
 
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class JointWinner implements Winner {
 
@@ -13,10 +14,6 @@ public class JointWinner implements Winner {
 
     @Override
     public String toString() {
-        StringJoiner s = new StringJoiner(", ");
-        for (Car car : cars) {
-            s.add(car.toString());
-        }
-        return s.toString();
+        return cars.stream().map(Car::name).collect(Collectors.joining(","));
     }
 }
