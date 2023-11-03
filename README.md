@@ -20,7 +20,12 @@
 <br/>
 
 ## Model
-![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/205d6838-7b23-4214-af66-c0719c0a2c6c)
+![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/4a44e476-6d01-4eef-bd3e-c5101fe4108e)
+
+<br/>
+
+## UML
+![image](https://github.com/unnine/OOP-RacingCar-Game/assets/134513528/ea169229-d82c-40a3-b77b-bfdf873d070b)
 
 <br/>
 
