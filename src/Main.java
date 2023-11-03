@@ -6,6 +6,7 @@ import domain.judge.GeneralJudge;
 import domain.judge.JointWinnableStrategy;
 import domain.game.RacingByRandomRule;
 import domain.user.Player;
+import util.RandomNumber;
 
 import java.util.Arrays;
 

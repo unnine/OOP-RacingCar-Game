@@ -10,9 +10,8 @@ import java.util.List;
 public class JointWinnableStrategy implements WinnableStrategy {
 
     @Override
-    public Winner determineWinner(Car[] cars) {
+    public Winner determineWinner(Car[] cars, int maxScore) {
         List<Car> winners = new ArrayList<>(cars.length);
-        int maxScore = getMaxScore(cars);
 
         for (Car car : cars) {
             if (maxScore == car.distanceDriven()) {
@@ -20,13 +19,5 @@ public class JointWinnableStrategy implements WinnableStrategy {
             }
         }
         return new JointWinner(winners);
-    }
-
-    private int getMaxScore(Car[] cars) {
-        int max = 0;
-        for (Car car : cars) {
-            max = Math.max(max, car.distanceDriven());
-        }
-        return max;
     }
 }

@@ -13,6 +13,15 @@ public class GeneralJudge implements Judge {
 
     @Override
     public Winner whoIsWinner(Car[] cars) {
-        return winnableStrategy.determineWinner(cars);
+        int maxScore = getMaxScore(cars);
+        return winnableStrategy.determineWinner(cars, maxScore);
+    }
+
+    private int getMaxScore(Car[] cars) {
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.distanceDriven());
+        }
+        return max;
     }
 }

@@ -6,6 +6,6 @@ public class RacingByRandomRule implements RacingRule {
 
     @Override
     public boolean shouldGo() {
-        return RandomNumber.betweenZeroAndNine() >= 4;
+        return RandomNumber.betweenRange(0, 9) >= 4;
     }
 }

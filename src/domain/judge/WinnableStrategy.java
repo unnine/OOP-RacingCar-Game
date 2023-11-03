@@ -5,6 +5,6 @@ import domain.car.Winner;
 
 public interface WinnableStrategy {
 
-    Winner determineWinner(Car[] cars);
+    Winner determineWinner(Car[] cars, int maxScore);
 
 }
